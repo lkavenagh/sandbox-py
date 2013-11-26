@@ -2,4 +2,4 @@ from Euler import *
 
 e = Euler()
 
-print(e.selfPowers(1000))
+print(e.S(99999999019))

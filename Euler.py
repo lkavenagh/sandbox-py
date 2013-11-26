@@ -1,3 +1,4 @@
+from fractions import gcd
 class Euler:
     def largestPalindromeProduct(self, digits):
         curLargest = 0;
@@ -56,3 +57,26 @@ class Euler:
             print(res)
 
         return res
+
+    def lcm(self,numbers):
+        return reduce(lambda x, y: (x*y)/gcd(x,y), numbers, 1)
+
+    def A(self, n):
+        ret = 0
+        i = n
+        while i > 0:
+            ret = ret + self.lcm((n, i))
+            i -= 1
+
+        return ret / n
+
+    def S(self, n):
+        ret = 0
+        i = n
+        while i > 0:
+            print i
+            ret = ret + self.A(i)
+            i -= 1
+
+        return ret
+        
