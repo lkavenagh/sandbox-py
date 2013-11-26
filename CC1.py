@@ -37,3 +37,32 @@ class CC1:
                 newStr = newStr + str[i]
 
         return newStr
+
+    def compressString(self, mystr):
+        newStr = mystr[0]
+        curCount = 1
+        
+        for i in range(1, len(mystr)):
+            if mystr[i] == mystr[i-1]:
+                curCount += 1
+            else:
+                if curCount == 1:
+                    newStr = newStr + mystr[i]
+                else:
+                    newStr = newStr + str(curCount) + mystr[i]
+                    curCount = 1
+
+        if len(newStr) < len(mystr):
+            return newStr
+        else:
+            return mystr
+
+    def isSubstring(self, s1, s2):
+        return s1 in s2
+
+    def isRotation(self, s1, s2):
+        if (len(s1) != len(s2)):
+            return False
+
+        return self.isSubstring(s2, s1+s1)
+            
